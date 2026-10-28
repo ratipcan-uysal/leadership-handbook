@@ -1,6 +1,6 @@
 # Leadership Handbook
 
-Leadership Handbook is a 94-page guide in the Before You Commit series about what to know before leading people, teams, and yourself.
+Leadership Handbook is a 104-page guide in the Before You Commit series about what to know before leading people, teams, and yourself.
 
 Read the PDF here:
 
@@ -64,8 +64,30 @@ D - Source Library & Online Resources
 ```text
 README.md
 leadership_handbook.pdf
+content/appendix-c.md
+scripts/build_handbook.py
+scripts/verify_handbook.py
+requirements.txt
+docs/2026-10-29-notion-integration.md
 ```
 
 ## Format
 
-The PDF is the primary artifact because this is a polished handbook with deliberate structure and layout. A Markdown edition can be added later if the text needs to become easier to diff, search, quote, or maintain as a living document.
+The PDF is the primary artifact. [Appendix C](content/appendix-c.md) is also available as editable Markdown. It contains 12 question banks with guidance on when to use them, what to do with the answer, and relevant limits. The rest of the book remains in its original PDF layout; this repository does not yet contain a complete editable edition.
+
+## October 2026 Revision
+
+The Notion collection was compared with the existing handbook, including its embedded book-note images. This revision adds 36 question items, merges five overlapping items, and moves existing questions into the most relevant banks. Appendix C now has 178 items, including the existing cadence prompts and survey statements. No new research results are claimed. See the [integration and verification record](docs/2026-10-29-notion-integration.md) for coverage, attribution, and exclusions.
+
+## Rebuild
+
+Use Python 3 with the versions in `requirements.txt`:
+
+```sh
+python -m pip install -r requirements.txt
+python scripts/build_handbook.py
+```
+
+The script reads the original 94-page edition from commit `2df876d44ef26f1071ab398c2fa3e73dbf41b017`, replaces its Appendix C, and renumbers the source-library pages. It verifies the baseline blob before editing. It needs that commit in local Git history; alternatively pass `--base-pdf /path/to/the-original-edition.pdf`. It makes no network requests and does not reconstruct the unchanged chapters from extracted text.
+
+For verification, additionally install `pdfplumber` and `pypdfium2`, then run `python scripts/verify_handbook.py`. This checks preservation, all source lines, page bounds and footer numbering. Inspect rendered changed pages as well; text checks alone do not establish visual quality.

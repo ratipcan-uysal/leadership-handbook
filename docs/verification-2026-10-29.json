@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "original_body_pages_preserved": 87,
+  "exact_original_content_streams": 75,
+  "appendix_pages": 17,
+  "source_lines_present": 273,
+  "question_items": 178,
+  "banks_with_use_and_follow_through": 12,
+  "total_pages": 104,
+  "source_library_footer_numbers": "single and correct",
+  "sha256": "c9b866c9eb5dcc0cc9e49f1a49275b806ba214bc806a426e69d027c647ffc0d8",
+  "visual_review": {
+    "status": "passed",
+    "pages": "76-92 and the transition to Appendix D on 93",
+    "scope": "All changed pages rendered and opened; layout, continuation headings, source notes and footer spacing checked."
+  },
+  "original_question_coverage": {
+    "merged": 5,
+    "revised_for_evidence": 2,
+    "other_original_items_preserved": 140
+  }
+}
